@@ -1,10 +1,7 @@
-/*
- * Asignatura: Patrones de Diseño de Software 
- * Patrón Estructural - > Adapter
- * Tipo de Clase: Main()
- */
 package com.patronespd.patronadapter;
 
+import com.patronespd.fintech.c.FintechCCreditos;
+import com.patronespd.fintech.c.FintechCRecepcionCredito;
 import com.patronespd.implementacion.AdaptadorFintechA;
 import com.patronespd.implementacion.AdaptadorFitechB;
 import com.patronespd.implementacion.FintechCreditoRespuesta;
@@ -12,7 +9,6 @@ import com.patronespd.implementacion.FintechSolicitudCredito;
 import com.patronespd.implementacion.InterfaceFintechAdaptador;
 
 /**
- *
  * @author Fabrizio Bolaño
  */
 public class PatronAdapterMain {
@@ -44,6 +40,19 @@ public class PatronAdapterMain {
             System.out.println("Felicitaciones!!!!!, la Financiera <<A>> aprobó su solicitud de crédito.");
         } else { 
             System.out.println("Lo sentimos, la Financiera <<A>> no aprobó su crédito");   
+        }
+        
+        // FintechC
+        FintechCCreditos fintechC = new FintechCCreditos();
+        fintechC.setCredito(1000); // Solicitud de crédito
+        FintechCRecepcionCredito recepcionCreditoC = new FintechCRecepcionCredito();
+        
+        boolean resultadoFintechC = recepcionCreditoC.procesarCredito(fintechC);
+        
+        if (resultadoFintechC) {
+            System.out.println("Felicitaciones!!!!!, la Fintech <<C>> aprobó su solicitud de crédito.");
+        } else {
+            System.out.println("Lo sentimos, la Fintech <<C>> no aprobó su crédito.");
         }
     }
 }
